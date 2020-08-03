@@ -15,7 +15,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class CustomerTest {
 
 
-	private static final String GOLD_PATH = "data/";
+	private static final String GOLD_PATH = "data//";
 
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
 
