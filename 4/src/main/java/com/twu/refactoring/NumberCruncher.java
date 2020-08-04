@@ -1,43 +1,30 @@
 package com.twu.refactoring;
 
+import java.util.Arrays;
+
 public class NumberCruncher {
     private final int[] numbers;
 
     public NumberCruncher(int... numbers) {
         this.numbers = numbers;
-        countInit();
     }
 
-    private int countEven = 0;
-    private int countOdd = 0;
-    private int countPositive = 0;
-    private int countNegative = 0;
 
-    private void countInit() {
-        for (int number : numbers) {
-            if (number % 2 == 0)
-                countEven++;
-            if (number % 2 == 1)
-                countOdd++;
-            if (number >= 0)
-                countPositive++;
-            if (number < 0)
-                countNegative++;
-        }
-    }
+
+
     public int countEven() {
-        return countEven;
+        return (int)Arrays.stream(numbers).filter(number -> number % 2 == 0).count();
     }
 
     public int countOdd() {
-        return countOdd;
+        return (int)Arrays.stream(numbers).filter(number -> number % 2 == 1).count();
     }
 
     public int countPositive() {
-        return countPositive;
+        return (int)Arrays.stream(numbers).filter(number -> number  >= 0).count();
     }
 
     public int countNegative() {
-        return countNegative;
+        return (int)Arrays.stream(numbers).filter(number -> number  < 0).count();
     }
 }
