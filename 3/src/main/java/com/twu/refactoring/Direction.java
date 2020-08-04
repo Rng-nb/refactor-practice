@@ -5,38 +5,33 @@ public class Direction {
 
     public Direction(char direction) {
         this.direction = direction;
+
     }
 
     public Direction turnRight() {
-        switch (direction) {
-            case 'N':
-                return new Direction('E');
-            case 'S':
-                return new Direction('W');
-            case 'E':
-                return new Direction('N');
-            case 'W':
-                return new Direction('S');
-            default:
-                throw new IllegalArgumentException();
-        }
+        DirectionBase directionBase = getDirection(direction);
+        return  directionBase.turnRight();
     }
 
     public Direction turnLeft() {
+        DirectionBase directionBase = getDirection(direction);
+        return  directionBase.turnLeft();
+    }
+
+    public DirectionBase getDirection(char direction) {
         switch (direction) {
             case 'N':
-                return new Direction('W');
+                return new North();
             case 'S':
-                return new Direction('E');
+                return new South();
             case 'E':
-                return new Direction('N');
+                return new East();
             case 'W':
-                return new Direction('S');
+                return new West();
             default:
                 throw new IllegalArgumentException();
         }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
